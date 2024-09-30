@@ -1,11 +1,26 @@
 // imageGallery.js
 
+import { DocumentTextIcon } from '@sanity/icons'
 import { defineField, defineType } from 'sanity'
 
 export const imageGalleryType = defineType({
     name: 'gallery',
     type: 'object',
     title: 'Gallery',
+    icon: DocumentTextIcon,
+    preview: {
+        select: {
+            title: 'heading',
+            image: 'image',
+        },
+        prepare({ title, image }) {
+            return {
+                title: title || 'Untitled',
+                subtitle: 'Gallery',
+                media: image || DocumentTextIcon,
+            }
+        },
+    },
     fields: [
         {
             name: 'images',
