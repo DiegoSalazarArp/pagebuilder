@@ -16,7 +16,7 @@ export const pageType = defineType({
         prepare({ title, image }) {
             return {
                 title: title || 'Untitled',
-                subtitle: 'Hero',
+                subtitle: 'Page',
                 media: image || DocumentTextIcon,
             }
         },
